@@ -1,0 +1,5 @@
+---
+- name: Configure fpm pool
+  template: src="templates/etc/php-fpm.d/www.conf.j2" dest="/etc/php-fpm.d/www.conf"
+  when: php7_fpm_enabled == True
+  notify: restart php-fpm

@@ -1,0 +1,23 @@
+- name: Define php7_repo_*
+  set_fact:
+    php7_repo_name: "{{ _php7_repo_name }}"
+    php7_repo_mirrorlist: "{{ _php7_repo_mirrorlist }}"
+    php7_repo_gpgkey: "{{ _php7_repo_gpgkey }}"
+    php7_repo_gpgcheck: "{{ _php7_repo_gpgcheck }}"
+    php7_package_prefix: "{{ _php7_package_prefix }}"
+    php7_packages: "{{ _php7_packages }}"
+  when: php7_repo_name is not defined
+
+- name: Setup repository
+  template: src="templates/etc/yum.repos.d/php7.repo.j2" dest="/etc/yum.repos.d/php7.repo" owner="root"
+
+- name: Enable epel
+  yum:
+    name: epel-release
+    state: latest
+
+- name: Install PHP packages
+  yum:
+    name: "{{ php7_package_prefix }}-{{ item }}"
+    state: latest
+  with_items: "{{ php7_packages }}"

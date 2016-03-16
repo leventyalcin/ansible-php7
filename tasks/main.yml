@@ -1,0 +1,10 @@
+---
+- name: Include OS variables
+  include_vars: "el.yml"
+  when: ansible_os_family == 'RedHat'
+
+- include: install-el.yml
+  when: ansible_os_family == 'RedHat'
+
+- include: configure-el.yml
+  when: ansible_os_family == 'RedHat'

@@ -1,0 +1,24 @@
+---
+php7_fpm_enabled: True
+php7_fpm_user: nginx
+php7_fpm_group: nginx
+php7_fpm_daemon: php-fpm
+
+# tcp | socket
+php7_fpm_listen_type: tcp
+php7_fpm_listen: "127.0.0.1:9000"
+php7_fpm_listen_allowed_clients: "127.0.0.1"
+
+php7_fpm_pm: dynamic
+php7_fpm_pm_max_children: 50
+php7_fpm_pm_start_servers: 10
+php7_fpm_pm_min_spare_server: 10
+php7_fpm_pm_max_spare_servers: 35
+php7_fpm_pm_process_idle_timeout: "10s"
+php7_fpm_pm_max_requests: 1000
+php7_fpm_pm_status_path: "/fpm_status"
+php7_fpm_ping_path: "/ping"
+php7_fpm_request_slowlog_timeout: 0
+php7_fpm_rlimit_files: 1024
+php7_fpm_clear_env: "yes"
+php7_fpm_slowlog: "/var/log/php-fpm/www-slow.log"

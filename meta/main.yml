@@ -1,0 +1,17 @@
+galaxy_info:
+  author: Levent Yalcin
+  description: Install and configure PHP7
+  issue_tracker_url: https://github.com/leventyalcin/ansible-php7/issues
+  license: license (MIT)
+  min_ansible_version: 2.0
+  platforms:
+  - name: EL
+  versions:
+    - 6
+
+  galaxy_tags:
+    - development
+    - web
+    - php
+
+dependencies: []

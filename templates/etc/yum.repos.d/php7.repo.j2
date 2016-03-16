@@ -1,0 +1,13 @@
+[{{ php7_repo_name }}]
+name={{ php7_repo_name }}
+{% if php7_repo_mirrorlist is defined %}
+mirrorlist={{ php7_repo_mirrorlist }}
+{% endif %}
+{% if php7_repo_baseurl is defined %}
+baseurl={{ php7_repo_baseurl }}
+{% endif %}
+gpgcheck={{ php7_repo_gpgcheck }}
+{% if php7_repo_gpgkey %}
+gpgkey={{ php7_repo_gpgkey }}
+{% endif %}
+enabled=1

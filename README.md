@@ -1,2 +1,28 @@
-# ansible-php7
-Ansible role to install and configure PHP7
+Role Name
+=========
+
+Install and configure php7
+
+Requirements
+------------
+
+
+Role Variables
+--------------
+
+
+Dependencies
+------------
+
+
+Example Playbook
+----------------
+
+License
+-------
+
+MIT 
+
+Author Information
+------------------
+

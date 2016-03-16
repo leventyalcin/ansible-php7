@@ -1,0 +1,19 @@
+_php7_packages:
+  - cli
+  - common
+  - devel
+  - fpm
+  - gd
+  - mbstring
+  - mysqlnd
+  - pdo
+  - xml
+  - pear
+  - bcmath
+
+_php7_package_prefix: php70w
+
+_php7_repo_name: "webtatic"
+_php7_repo_mirrorlist: "https://mirror.webtatic.com/yum/el{{ ansible_distribution_major_version }}/$basearch/mirrorlist"
+_php7_repo_gpgkey: "https://mirror.webtatic.com/yum/RPM-GPG-KEY-webtatic-andy"
+_php7_repo_gpgcheck: 1

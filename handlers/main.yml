@@ -1,0 +1,6 @@
+---
+- name: restart php-fpm
+  service:
+    name: "{{ php7_fpm_daemon }}"
+    state: restarted
+    enabled: yes
