@@ -1,3 +1,8 @@
+- name: Install PHP from custom repository
+  set_fact:
+    php7_install_custom_repo: "{{ _php7_install_custom_repo }}"
+  when: php7_install_custom_repo is not defined
+
 - name: Define php7_repo_*
   set_fact:
     php7_repo_name: "{{ _php7_repo_name }}"
@@ -5,16 +10,22 @@
     php7_repo_gpgkey: "{{ _php7_repo_gpgkey }}"
     php7_repo_gpgcheck: "{{ _php7_repo_gpgcheck }}"
     php7_package_prefix: "{{ _php7_package_prefix }}"
-    php7_packages: "{{ _php7_packages }}"
-  when: php7_repo_name is not defined
+  when: php7_repo_name is not defined and php7_install_custom_repo == True
 
-- name: Setup repository
-  template: src="templates/etc/yum.repos.d/php7.repo.j2" dest="/etc/yum.repos.d/php7.repo" owner="root"
+- name: Define PHP packages
+  set_fact:
+    php7_packages: "{{ _php7_packages }}"
+  when: php7_packages is not defined
 
 - name: Enable epel
   yum:
     name: epel-release
     state: latest
+  when: php7_install_custom_repo == True
+
+- name: Setup repository
+  template: src="templates/etc/yum.repos.d/php7.repo.j2" dest="/etc/yum.repos.d/php7.repo" owner="root"
+  when: php7_install_custom_repo == True
 
 - name: Install PHP packages
   yum:

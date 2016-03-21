@@ -11,6 +11,8 @@ _php7_packages:
   - pear
   - bcmath
 
+_php_install_custom_repo: False
+
 _php7_package_prefix: php70w
 
 _php7_repo_name: "webtatic"
