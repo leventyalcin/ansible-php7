@@ -64,3 +64,9 @@ php_admin_flag[{{ key }}] = {{ value }}
 {% for key, value in php7_values.iteritems() %}
 php_value[{{ key }}] = {{ value }}
 {% endfor %}
+
+{% if php7_fpm_includes is defined %}
+{% for filename in php7_fpm_includes %}
+include = {{ filename }}
+{% endfor %}
+{% endif %}
